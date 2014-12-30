@@ -1,1 +1,10 @@
-  p HELLO!
+  section class='top-navbar'  
+    =link_to 'Today', today_dashboard_index_path
+    =link_to 'Tomorrow', tomorrow_dashboard_index_path
+    =link_to 'Following Days', following_days_dashboard_index_path
+
+  -if Task.any?
+    h1 Tasks
+  -else
+    h1 "Take the time to plan your day!" :D
+    

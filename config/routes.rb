@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :dashboard
-  resources :tasks
   root to: "dashboard#home"
+  resources :dashboard, only: :home do 
+    collection do
+      get 'today'
+      get 'tomorrow'
+      get 'following_days'
+    end
+  end
+  resources :tasks
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

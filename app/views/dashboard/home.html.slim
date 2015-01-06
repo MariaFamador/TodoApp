@@ -4,7 +4,7 @@
       .form-group
         = f.label :name
         = f.text_field :name
-      = f.label :due_date
+      = f.label :due_date, class: 'due-date'
       .radio-inline 
         label 
           = f.radio_button :due_date, Date.today
@@ -13,7 +13,11 @@
         label
           = f.radio_button :due_date, Date.tomorrow
           p tomorrow
+      .radio-inline 
+        label
+          = f.radio_button :due_date, ""
+          p later
       .form-group
-        = f.text_field :due_date, class: 'datepicker', placeholder: ' Set a later date here'
+        = f.text_field :due_date, class: 'datepicker', placeholder: ' Select a later date here'
 
       = f.submit "Save", class: 'btn btn-default btn-sm save-new-task'

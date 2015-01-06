@@ -31,9 +31,13 @@
 .new-task {
   width: 30%;
   margin: auto;
-  
-  > input {
-    border-radius: 2px;
-    border: 1px solid grey;
+
+  .form-group {
+    > input {
+      width: 100%;
+      border-radius: 2px;
+      border: 1px solid lightgrey;
+    }
   }
 }
+

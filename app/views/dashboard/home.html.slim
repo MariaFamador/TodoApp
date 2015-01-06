@@ -1,12 +1,7 @@
-  div class='dashboard-navbar'  
-    =link_to 'Today', today_dashboard_index_path
-    =link_to 'Tomorrow', tomorrow_dashboard_index_path
-    =link_to 'Following Days', following_days_dashboard_index_path
-
-  -if Task.any?
-    h1 Tasks
-  -else
-    h1 class='no-tasks-msg' "Take a moment to plan your day!"
-    div class='new-task'
-      input placeholder='add a task here' class='text-center'
-    
+  h1 class='no-tasks-msg' "Take a moment to plan your day!"
+  .new-task
+    = simple_form_for(@task) do |f|
+      = f.input :name, label: "Name"
+      = f.input :due_date, label: "Due Date", class: 'datepicker2'
+      = f.submit "Save", class: 'btn btn-default btn-sm'
+  

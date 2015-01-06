@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   def home
+    @task = Task.new
   end
 
   def today

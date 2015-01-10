@@ -1,0 +1,7 @@
+  .task-container
+    -if tasks.present?
+      ul.task-list
+        - tasks.each do |task|
+          li = task.name
+    -else
+      p = "There are no tasks for #{day}"

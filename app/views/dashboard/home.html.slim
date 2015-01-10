@@ -1,23 +1,11 @@
-  h1 class='no-tasks-msg' "Take a moment to plan your day!"
   .new-task
-    = form_for(@task) do |f|
+    h1 class='new-task-msg' "Take a moment to plan your day!"
+    = form_for @task do |f|
       .form-group
-        = f.label :name
-        = f.text_field :name
-      = f.label :due_date, class: 'due-date'
-      .radio-inline 
-        label 
-          = f.radio_button :due_date, Date.today
-          p today
-      .radio-inline 
-        label
-          = f.radio_button :due_date, Date.tomorrow
-          p tomorrow
-      .radio-inline 
-        label
-          = f.radio_button :due_date, ""
-          p later
-      .form-group
-        = f.text_field :due_date, class: 'datepicker', placeholder: ' Select a later date here'
+        = f.text_field :name, placeholder: ' enter task here', class: 'text-center task-name'
+        .due-date-buttons
+          = f.submit 'today', class: 'btn btn-sm btn-default round-btn today-btn'
+          = f.submit 'tomorrow', class: 'btn btn-sm btn-default round-btn tomorrow-btn'
+          = f.submit 'later', class: 'btn btn-sm btn-default round-btn later-btn'
 
-      = f.submit "Save", class: 'btn btn-default btn-sm save-new-task'
+

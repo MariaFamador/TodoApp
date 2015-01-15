@@ -6,16 +6,18 @@ $(document).ready ->
   $('.datepicker').pickadate();
 
   $('.today-btn').on 'click', ->
-    dueDateInput = $('<input />')
+    $('<input />')
       .attr('type', 'hidden')
       .attr('name', 'task[due_date]')
       .attr('value', moment().startOf('day').calendar())
       .appendTo('#new_task')
 
   $('.tomorrow-btn').on 'click', ->
-    dueDateInput = $('<input />')
+    $('<input />')
       .attr('type', 'hidden')
       .attr('name', 'task[due_date]')
       .attr('value', moment().startOf('day').add(1, 'days').calendar())
       .appendTo('#new_task')
+
+
 

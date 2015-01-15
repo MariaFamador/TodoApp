@@ -1,10 +1,10 @@
   .new-task
     h1 class='new-task-msg' "Take a moment to plan your day!"
-    = form_for @task do |f|
+    = form_for @task, remote: true do |f|
       .form-group
         = f.text_field :name, placeholder: ' enter task here', class: 'text-center task-name'
         .due-date-buttons
-          = f.submit 'today', class: 'btn btn-sm btn-default round-btn today-btn'
+          = f.submit 'today', class: 'btn btn-sm btn-default round-btn today-btn' 
           = f.submit 'tomorrow', class: 'btn btn-sm btn-default round-btn tomorrow-btn'
           = f.submit 'later', class: 'btn btn-sm btn-default round-btn later-btn'
 

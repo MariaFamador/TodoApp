@@ -16,5 +16,6 @@
 //= require turbolinks
 //= require picker.js
 //= require picker.date.js
-// require picker.time.js
+//= require picker.time.js
+//= require moment
 //= require_tree .

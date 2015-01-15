@@ -1,10 +1,16 @@
 class TasksController < ApplicationController
+
   def create
     @task = Task.new(task_params)
     if @task.save 
-      redirect_to "/", notice: "Task was successfully saved!"
+      flash[:success] = 'Task was successfully saved!'
+      respond_to do |format|
+        format.html { redirect_to '/' }
+        format.js
+      end
     else
-      render :new
+      flash[:error] = 'A problem occurred while saving the task.'
+      render :create
     end
   end
 

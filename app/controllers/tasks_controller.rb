@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-
   def create
     @task = Task.new(task_params)
     if @task.save 

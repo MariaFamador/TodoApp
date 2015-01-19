@@ -3,6 +3,7 @@
   var flashMessage = "<div id='flash-messages' class='alert <%= bootstrap_class_for(type) %> fade in'> \
       <button class='close' data-dismiss='alert'>×</button> \
       <%= message %> \
+      <ul id='error-msgs'></ul> \
     </div>";
 
   if ($flash.length > 0) {
@@ -11,4 +12,11 @@
     $('body').prepend(flashMessage);
   }
   <% flash.delete(type) %>
+<% end %>
+
+// for showing error messages per object
+<% if @task.errors.present? %>
+  <% @task.errors.full_messages.each do |error_msg|%>
+    $('#error-msgs').append("<li><%= error_msg %></li>");
+  <% end %>
 <% end %>
